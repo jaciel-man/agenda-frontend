@@ -1,0 +1,258 @@
+/* === RESET Y BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: #fdfbf7;
+  color: #4a3320;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === BARRA DE NAVEGACIÓN === */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 2px solid #e7d7c4;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #8b5e3c;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #f3e9dd;
+  color: #5a3a25;
+}
+
+nav a.router-link-exact-active {
+  background-color: #8b5e3c;
+  color: white;
+}
+
+nav button {
+  background-color: #e0c9b0;
+  border: none;
+  color: #4a3320;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: auto;  /* lo empuja a la derecha */
+}
+
+nav button:hover {
+  background-color: #c9a87c;
+  color: white;
+}
+
+/* === CONTENEDORES PRINCIPALES === */
+h1, h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #5a3a25;
+}
+
+h1 {
+  font-size: 2.2rem;
+  border-left: 5px solid #c9a87c;
+  padding-left: 15px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  border-bottom: 2px solid #e7d7c4;
+  padding-bottom: 8px;
+  margin-top: 10px;
+}
+
+/* === TARJETAS Y LISTAS === */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+li a {
+  text-decoration: none;
+  color: #4a3320;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+li img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e7d7c4;
+}
+
+/* === FORMULARIOS === */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  max-width: 560px;
+  margin: 20px 0;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border: 2px solid #e7d7c4;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fefcf8;
+  color: #4a3320;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #c9a87c;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(201,168,124,0.2);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Estilo especial para input de archivo */
+input[type="file"] {
+  padding: 10px;
+  background: #faf6f0;
+  border: 2px dashed #c9a87c;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  background: #f5efe5;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #8b5e3c;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+  background-color: #6b4427;
+  transform: scale(1.01);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* === ENLACES DESTACADOS (como "Nuevo contacto") === */
+a[href="/agenda/crear"], a[href*="agenda/crear"] {
+  display: inline-block;
+  margin-bottom: 25px;
+  background: #c9a87c;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+a[href="/agenda/crear"]:hover, a[href*="agenda/crear"]:hover {
+  background: #b28d5e;
+}
+
+/* === MENSAJES DE ERROR/ÉXITO === */
+p {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+p[style*="color:red"], p:has(+ .error) {
+  background-color: #fff0f0;
+  color: #b22222;
+  border: 1px solid #f5c6c6;
+}
+
+/* === PERFIL (imagen del usuario) === */
+img[alt="Foto"], img[alt="Foto de perfil"] {
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: 15px 0;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  #app {
+    padding: 0 15px;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav button {
+    margin-left: 0;
+  }
+  form {
+    padding: 20px;
+  }
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
