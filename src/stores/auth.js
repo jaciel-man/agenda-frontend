@@ -23,9 +23,18 @@ export const useAuthStore = defineStore('auth', {
       return res.data;
     },
     async register(data) {
-      const API_URL = await getApiUrl();
-      return axios.post(`${API_URL}/auth/registrar.php`, data);
-    },
+  const API_URL = await getApiUrl();
+  const res = await axios.post(`${API_URL}/auth/registrar.php`, data);
+  if (res.data.success && res.data.token) {
+    // Auto-login: guardamos el token y usuario que nos devuelve el backend
+    this.token = res.data.token;
+    this.user = res.data.usuario;
+    localStorage.setItem('token', this.token);
+    localStorage.setItem('user', JSON.stringify(this.user));
+  }
+  return res.data;
+}
+,
     async logout() {
       const API_URL = await getApiUrl();
       try {
